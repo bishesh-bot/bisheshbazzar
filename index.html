@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishesh Bazzar - Ethnic Wear Collection</title>
+    <title>Bishesh Bazzar - New Year 2082 Special</title>
     <style>
         * {
             margin: 0;
@@ -90,7 +90,7 @@
         
         /* Hero Section */
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1525507119028-ed4c629a60a3');
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1560840067-ddcaeb7831d2');
             background-size: cover;
             background-position: center;
             height: 300px;
@@ -106,6 +106,16 @@
             margin-bottom: 20px;
         }
         
+        /* Special Offer Banner */
+        .offer-banner {
+            background-color: #B12704;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
         /* Shop Section */
         .shop-section {
             display: flex;
@@ -116,7 +126,7 @@
         }
         
         .box {
-            height: 420px;
+            height: 450px;
             width: 23%;
             background-color: white;
             padding: 20px 0px 15px;
@@ -124,6 +134,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            position: relative;
         }
         
         .box:hover {
@@ -161,6 +172,17 @@
             margin: 10px 0;
         }
         
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .discount {
+            color: #B12704;
+            font-weight: bold;
+        }
+        
         .add-to-cart {
             background-color: #FFD814;
             border: none;
@@ -175,6 +197,18 @@
         
         .add-to-cart:hover {
             background-color: #F7CA00;
+        }
+        
+        .exclusive-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #B12704;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
         
         /* Cart Section */
@@ -331,11 +365,16 @@
         </div>
     </div>
     
+    <!-- Special Offer Banner -->
+    <div class="offer-banner">
+        नयाँ वर्ष २०८२ उपलक्ष्यमा ९०% छुट! | New Year 2082 Special - 90% OFF!
+    </div>
+    
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <h1>Ethnic Wear Collection</h1>
-            <p>Traditional outfits for every occasion</p>
+            <h1>New Year 2082 Special Collection</h1>
+            <p>Traditional outfits with exclusive 90% discount</p>
         </div>
     </div>
     
@@ -343,43 +382,55 @@
     <div class="shop-section">
         <!-- Red Saree Product -->
         <div class="box">
+            <div class="exclusive-tag">90% OFF</div>
             <div class="box-content">
                 <h2>Red Georgette Saree</h2>
                 <div class="box-img" style="background-image: url('https://www.kollybollyethnics.com/image/catalog/data/24Jul2018/Indian-Wedding-Georgette-Red-Colour-Saree-1556.jpg')"></div>
-                <p class="product-description">Elegant red georgette saree with intricate embroidery, perfect for weddings and festive occasions.</p>
-                <p class="price">Rs. 2,899</p>
+                <p class="product-description">Elegant red georgette saree with intricate embroidery, perfect for new year celebrations.</p>
+                <p class="original-price">Rs. 28,990</p>
+                <p class="price">Rs. 2,899 <span class="discount">(90% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(1)">Add to Cart</button>
             </div>
         </div>
         
-        <!-- Other Ethnic Wear Products -->
+        <!-- Men's Kurta Pajama -->
         <div class="box">
+            <div class="exclusive-tag">90% OFF</div>
             <div class="box-content">
-                <h2>Blue Silk Saree</h2>
-                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1')"></div>
-                <p class="product-description">Royal blue silk saree with golden zari work, pure silk fabric.</p>
-                <p class="price">Rs. 3,499</p>
+                <h2>Men's Silk Kurta Pajama</h2>
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fac%2F61%2Fd9%2Fac61d937ed445f47c7b8ed6938b4d5ee.jpg&f=1&nofb=1&ipt=00bba31763268807de4df0311b19dbb0243ea9076b32903f5a370967e7ce3fb7&ipo=images" 
+                     alt="Men's Silk Kurta Pajama" 
+                     style="width: 100%; height: 300px; object-fit: cover; border-radius: 3px; margin-bottom: 15px;">
+                <p class="product-description">Premium silk kurta pajama with elegant embroidery for New Year celebrations.</p>
+                <p class="original-price">Rs. 15,990</p>
+                <p class="price">Rs. 1,599 <span class="discount">(90% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(2)">Add to Cart</button>
             </div>
         </div>
         
+        <!-- Daura Suruwal -->
         <div class="box">
+            <div class="exclusive-tag">90% OFF</div>
             <div class="box-content">
-                <h2>Green Lehenga Choli</h2>
-                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1595341595379-cf0f2f6f3db3')"></div>
-                <p class="product-description">Emerald green lehenga with heavy embroidery and matching dupatta.</p>
-                <p class="price">Rs. 5,999</p>
+                <h2>Traditional Daura Suruwal</h2>
+                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1600188769045-bc60256a0320')"></div>
+                <p class="product-description">Authentic Nepali daura suruwal set for men with dhaka topi.</p>
+                <p class="original-price">Rs. 12,990</p>
+                <p class="price">Rs. 1,299 <span class="discount">(90% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(3)">Add to Cart</button>
             </div>
         </div>
         
+        <!-- Blue Silk Saree -->
         <div class="box">
+            <div class="exclusive-tag">90% OFF</div>
             <div class="box-content">
-                <h2>Men's Kurta Pyjama</h2>
-                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1595341595379-cf0f2f6f3db3')"></div>
-                <p class="product-description">White cotton kurta with matching pyjama, perfect for festive occasions.</p>
-                <p class="price">Rs. 1,799</p>
-                <button class="addToCart(4)">Add to Cart</button>
+                <h2>Blue Silk Saree</h2>
+                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1')"></div>
+                <p class="product-description">Royal blue silk saree with golden zari work, pure silk fabric.</p>
+                <p class="original-price">Rs. 34,990</p>
+                <p class="price">Rs. 3,499 <span class="discount">(90% OFF)</span></p>
+                <button class="add-to-cart" onclick="addToCart(4)">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -431,7 +482,7 @@
                 <a href="#">Your Ads Privacy Choices</a>
             </div>
             <div class="copyright">
-                © 2023, BisheshBazzar.com, Inc. or its affiliates
+                © 2082, BisheshBazzar.com, Inc. or its affiliates
             </div>
         </div>
     </footer>
@@ -443,26 +494,21 @@
         function addToCart(productId) {
             // In a real app, you would fetch product details from your database
             const products = {
-                1: { name: "Red Georgette Saree", price: 2899 },
-                2: { name: "Blue Silk Saree", price: 3499 },
-                3: { name: "Green Lehenga Choli", price: 5999 },
-                4: { name: "Men's Kurta Pyjama", price: 1799 }
+                1: { name: "Red Georgette Saree", price: 2899, originalPrice: 28990 },
+                2: { name: "Men's Silk Kurta Pajama", price: 1599, originalPrice: 15990 },
+                3: { name: "Traditional Daura Suruwal", price: 1299, originalPrice: 12990 },
+                4: { name: "Blue Silk Saree", price: 3499, originalPrice: 34990 }
             };
             
             const product = products[productId];
             cart.push(product);
             updateCartCount();
-            alert(`${product.name} added to cart!\nPrice: Rs. ${product.price}`);
+            alert(`${product.name} added to cart!\nDiscounted Price: Rs. ${product.price}\nOriginal Price: Rs. ${product.originalPrice}\nYou Save: Rs. ${product.originalPrice - product.price}`);
         }
         
         function updateCartCount() {
             document.querySelector('.cart-count').textContent = cart.length;
         }
-        
-        // You would add more functions here for:
-        // - Viewing the cart
-        // - Removing items
-        // - Checkout process
     </script>
 </body>
 </html>
