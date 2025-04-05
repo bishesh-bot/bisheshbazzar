@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bishesh Bazzar - Ethnic Wear Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            height: 60px;
+            background-color: #0F1111;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            height: 50px;
+            width: 120px;
+        }
+        
+        .logo {
+            background-color: #fff;
+            color: #0F1111;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .border {
+            border: 1.5px solid transparent;
+            padding: 5px;
+        }
+        
+        .border:hover {
+            border: 1.5px solid white;
+            border-radius: 3px;
+        }
+        
+        /* Search Bar */
+        .nav-search {
+            display: flex;
+            justify-content: space-evenly;
+            width: 50%;
+            height: 40px;
+            border-radius: 4px;
+            margin: 0 20px;
+        }
+        
+        .search-select {
+            background-color: #f3f3f3;
+            width: 50px;
+            text-align: center;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border: none;
+        }
+        
+        .search-input {
+            width: 100%;
+            font-size: 1rem;
+            border: none;
+            padding: 0 10px;
+        }
+        
+        .search-icon {
+            width: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            background-color: #febd68;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            color: #0F1111;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1525507119028-ed4c629a60a3');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Shop Section */
+        .shop-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            background-color: #e2e7e6;
+            padding: 20px 0;
+        }
+        
+        .box {
+            height: 420px;
+            width: 23%;
+            background-color: white;
+            padding: 20px 0px 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .box-content {
+            padding: 0 15px;
+        }
+        
+        .box-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+            border-radius: 3px;
+        }
+        
+        .box-content h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #B12704;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        
+        .add-to-cart {
+            background-color: #FFD814;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #F7CA00;
+        }
+        
+        /* Cart Section */
+        .cart-count {
+            margin-left: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            background-color: #232F3E;
+            color: white;
+        }
+        
+        .foot-panel1 {
+            background-color: #37475a;
+            color: white;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .foot-panel2 {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 40px 0;
+        }
+        
+        .foot-panel2 ul {
+            list-style: none;
+        }
+        
+        .foot-panel2 ul h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .foot-panel2 ul a {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #DDD;
+            text-decoration: none;
+        }
+        
+        .foot-panel2 ul a:hover {
+            text-decoration: underline;
+        }
+        
+        .foot-panel3 {
+            background-color: #232F3E;
+            border-top: 1px solid #3a4553;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .foot-panel4 {
+            background-color: #131A22;
+            color: white;
+            padding: 20px 0;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        .pages {
+            margin-bottom: 10px;
+        }
+        
+        .pages a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .pages a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .box {
+                width: 30%;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .box {
+                width: 45%;
+            }
+            
+            .nav-search {
+                width: 40%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .box {
+                width: 90%;
+            }
+            
+            .nav-search {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="navbar">
+        <div class="nav-logo border">
+            <div class="logo">Bishesh Bazzar</div>
+        </div>
+        
+        <div class="nav-address border">
+            <p class="add-first">Deliver to</p>
+            <div class="add-icon">
+                <p class="add-sec">Nepal</p>
+            </div>
+        </div>
+        
+        <div class="nav-search">
+            <select class="search-select">
+                <option>All</option>
+                <option>Clothing</option>
+                <option>Electronics</option>
+                <option>Home</option>
+            </select>
+            <input placeholder="Search Bishesh Bazzar" class="search-input">
+            <div class="search-icon">
+                🔍
+            </div>
+        </div>
+        
+        <div class="nav-signin border">
+            <p><span>Hello, sign in</span></p>
+            <p class="nav-second">Account & Lists</p>
+        </div>
+        
+        <div class="nav-return border">
+            <p><span>Returns</span></p>
+            <p class="nav-second">& Orders</p>
+        </div>
+        
+        <div class="nav-cart border">
+            🛒 Cart <span class="cart-count">0</span>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Ethnic Wear Collection</h1>
+            <p>Traditional outfits for every occasion</p>
+        </div>
+    </div>
+    
+    <!-- Shop Section -->
+    <div class="shop-section">
+        <!-- Red Saree Product -->
+        <div class="box">
+            <div class="box-content">
+                <h2>Red Georgette Saree</h2>
+                <div class="box-img" style="background-image: url('https://www.kollybollyethnics.com/image/catalog/data/24Jul2018/Indian-Wedding-Georgette-Red-Colour-Saree-1556.jpg')"></div>
+                <p class="product-description">Elegant red georgette saree with intricate embroidery, perfect for weddings and festive occasions.</p>
+                <p class="price">Rs. 2,899</p>
+                <button class="add-to-cart" onclick="addToCart(1)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Other Ethnic Wear Products -->
+        <div class="box">
+            <div class="box-content">
+                <h2>Blue Silk Saree</h2>
+                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1')"></div>
+                <p class="product-description">Royal blue silk saree with golden zari work, pure silk fabric.</p>
+                <p class="price">Rs. 3,499</p>
+                <button class="add-to-cart" onclick="addToCart(2)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="box">
+            <div class="box-content">
+                <h2>Green Lehenga Choli</h2>
+                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1595341595379-cf0f2f6f3db3')"></div>
+                <p class="product-description">Emerald green lehenga with heavy embroidery and matching dupatta.</p>
+                <p class="price">Rs. 5,999</p>
+                <button class="add-to-cart" onclick="addToCart(3)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <div class="box">
+            <div class="box-content">
+                <h2>Men's Kurta Pyjama</h2>
+                <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1595341595379-cf0f2f6f3db3')"></div>
+                <p class="product-description">White cotton kurta with matching pyjama, perfect for festive occasions.</p>
+                <p class="price">Rs. 1,799</p>
+                <button class="addToCart(4)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="foot-panel1">
+            Back to Top
+        </div>
+        
+        <div class="foot-panel2">
+            <ul>
+                <h3>Get to Know Us</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Releases</a>
+                <a href="#">Bishesh Bazzar Science</a>
+            </ul>
+            <ul>
+                <h3>Make Money with Us</h3>
+                <a href="#">Sell products on Bishesh Bazzar</a>
+                <a href="#">Sell on Bishesh Bazzar Business</a>
+                <a href="#">Become an Affiliate</a>
+                <a href="#">Advertise Your Products</a>
+            </ul>
+            <ul>
+                <h3>Payment Products</h3>
+                <a href="#">Bishesh Bazzar Business Card</a>
+                <a href="#">Shop with Points</a>
+                <a href="#">Reload Your Balance</a>
+            </ul>
+            <ul>
+                <h3>Let Us Help You</h3>
+                <a href="#">Your Account</a>
+                <a href="#">Your Orders</a>
+                <a href="#">Shipping Rates & Policies</a>
+                <a href="#">Returns & Replacements</a>
+            </ul>
+        </div>
+        
+        <div class="foot-panel3">
+            <div class="logo">Bishesh Bazzar</div>
+        </div>
+        
+        <div class="foot-panel4">
+            <div class="pages">
+                <a href="#">Conditions of Use</a>
+                <a href="#">Privacy Notice</a>
+                <a href="#">Your Ads Privacy Choices</a>
+            </div>
+            <div class="copyright">
+                © 2023, BisheshBazzar.com, Inc. or its affiliates
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Shopping Cart Functionality
+        let cart = [];
+        
+        function addToCart(productId) {
+            // In a real app, you would fetch product details from your database
+            const products = {
+                1: { name: "Red Georgette Saree", price: 2899 },
+                2: { name: "Blue Silk Saree", price: 3499 },
+                3: { name: "Green Lehenga Choli", price: 5999 },
+                4: { name: "Men's Kurta Pyjama", price: 1799 }
+            };
+            
+            const product = products[productId];
+            cart.push(product);
+            updateCartCount();
+            alert(`${product.name} added to cart!\nPrice: Rs. ${product.price}`);
+        }
+        
+        function updateCartCount() {
+            document.querySelector('.cart-count').textContent = cart.length;
+        }
+        
+        // You would add more functions here for:
+        // - Viewing the cart
+        // - Removing items
+        // - Checkout process
+    </script>
+</body>
+</html>
