@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishesh Bazzar - New Year 2082 Special</title>
+    <title>Bishesh Bazzar - Online Shopping Nepal</title>
     <style>
         * {
             margin: 0;
@@ -106,14 +106,138 @@
             margin-bottom: 20px;
         }
         
-        /* Special Offer Banner */
-        .offer-banner {
-            background-color: #B12704;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1.5rem;
+        /* Auth Modal */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 350px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
             font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: black;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .auth-tab.active {
+            border-bottom: 2px solid #febd68;
+            font-weight: bold;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .auth-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .auth-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #febd68;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        /* Help & Support Section */
+        .help-section {
+            padding: 40px 20px;
+            background-color: #f3f3f3;
+        }
+        
+        .help-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .help-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .help-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .help-category {
+            width: 30%;
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .help-category h3 {
+            margin-bottom: 15px;
+            color: #0F1111;
+        }
+        
+        .help-category ul {
+            list-style: none;
+        }
+        
+        .help-category ul li {
+            margin: 10px 0;
+        }
+        
+        .help-category ul li a {
+            color: #0066c0;
+            text-decoration: none;
+        }
+        
+        .help-category ul li a:hover {
+            text-decoration: underline;
+            color: #B12704;
         }
         
         /* Shop Section */
@@ -296,6 +420,10 @@
             .box {
                 width: 30%;
             }
+            
+            .help-category {
+                width: 45%;
+            }
         }
         
         @media (max-width: 900px) {
@@ -305,6 +433,10 @@
             
             .nav-search {
                 width: 40%;
+            }
+            
+            .help-category {
+                width: 100%;
             }
         }
         
@@ -319,6 +451,11 @@
             
             .hero-content h1 {
                 font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
             }
         }
     </style>
@@ -350,7 +487,7 @@
             </div>
         </div>
         
-        <div class="nav-signin border">
+        <div class="nav-signin border" id="authButton">
             <p><span>Hello, sign in</span></p>
             <p class="nav-second">Account & Lists</p>
         </div>
@@ -365,16 +502,11 @@
         </div>
     </div>
     
-    <!-- Special Offer Banner -->
-    <div class="offer-banner">
-        नयाँ वर्ष २०८२ उपलक्ष्यमा ९०% छुट! | New Year 2082 Special - 90% OFF!
-    </div>
-    
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <h1>New Year 2082 Special Collection</h1>
-            <p>Traditional outfits with exclusive 90% discount</p>
+            <h1>Welcome to Bishesh Bazzar</h1>
+            <p>Your one-stop shop for all your needs</p>
         </div>
     </div>
     
@@ -382,55 +514,124 @@
     <div class="shop-section">
         <!-- Red Saree Product -->
         <div class="box">
-            <div class="exclusive-tag">90% OFF</div>
+            <div class="exclusive-tag">50% OFF</div>
             <div class="box-content">
                 <h2>Red Georgette Saree</h2>
                 <div class="box-img" style="background-image: url('https://www.kollybollyethnics.com/image/catalog/data/24Jul2018/Indian-Wedding-Georgette-Red-Colour-Saree-1556.jpg')"></div>
-                <p class="product-description">Elegant red georgette saree with intricate embroidery, perfect for new year celebrations.</p>
-                <p class="original-price">Rs. 28,990</p>
-                <p class="price">Rs. 2,899 <span class="discount">(90% OFF)</span></p>
+                <p class="product-description">Elegant red georgette saree with intricate embroidery.</p>
+                <p class="original-price">Rs. 8,990</p>
+                <p class="price">Rs. 4,495 <span class="discount">(50% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(1)">Add to Cart</button>
             </div>
         </div>
         
         <!-- Men's Kurta Pajama -->
         <div class="box">
-            <div class="exclusive-tag">90% OFF</div>
+            <div class="exclusive-tag">40% OFF</div>
             <div class="box-content">
                 <h2>Men's Silk Kurta Pajama</h2>
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fac%2F61%2Fd9%2Fac61d937ed445f47c7b8ed6938b4d5ee.jpg&f=1&nofb=1&ipt=00bba31763268807de4df0311b19dbb0243ea9076b32903f5a370967e7ce3fb7&ipo=images" 
                      alt="Men's Silk Kurta Pajama" 
                      style="width: 100%; height: 300px; object-fit: cover; border-radius: 3px; margin-bottom: 15px;">
-                <p class="product-description">Premium silk kurta pajama with elegant embroidery for New Year celebrations.</p>
-                <p class="original-price">Rs. 15,990</p>
-                <p class="price">Rs. 1,599 <span class="discount">(90% OFF)</span></p>
+                <p class="product-description">Premium silk kurta pajama with elegant embroidery.</p>
+                <p class="original-price">Rs. 7,990</p>
+                <p class="price">Rs. 4,794 <span class="discount">(40% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(2)">Add to Cart</button>
             </div>
         </div>
         
         <!-- Daura Suruwal -->
         <div class="box">
-            <div class="exclusive-tag">90% OFF</div>
+            <div class="exclusive-tag">30% OFF</div>
             <div class="box-content">
                 <h2>Traditional Daura Suruwal</h2>
                 <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1600188769045-bc60256a0320')"></div>
                 <p class="product-description">Authentic Nepali daura suruwal set for men with dhaka topi.</p>
-                <p class="original-price">Rs. 12,990</p>
-                <p class="price">Rs. 1,299 <span class="discount">(90% OFF)</span></p>
+                <p class="original-price">Rs. 5,990</p>
+                <p class="price">Rs. 4,193 <span class="discount">(30% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(3)">Add to Cart</button>
             </div>
         </div>
         
         <!-- Blue Silk Saree -->
         <div class="box">
-            <div class="exclusive-tag">90% OFF</div>
+            <div class="exclusive-tag">25% OFF</div>
             <div class="box-content">
                 <h2>Blue Silk Saree</h2>
                 <div class="box-img" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1')"></div>
                 <p class="product-description">Royal blue silk saree with golden zari work, pure silk fabric.</p>
-                <p class="original-price">Rs. 34,990</p>
-                <p class="price">Rs. 3,499 <span class="discount">(90% OFF)</span></p>
+                <p class="original-price">Rs. 9,990</p>
+                <p class="price">Rs. 7,493 <span class="discount">(25% OFF)</span></p>
                 <button class="add-to-cart" onclick="addToCart(4)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Help & Support Section -->
+    <div class="help-section">
+        <div class="help-container">
+            <h2 class="help-title">Help & Support</h2>
+            <div class="help-categories">
+                <div class="help-category">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                <div class="help-category">
+                    <h3>Account Help</h3>
+                    <ul>
+                        <li><a href="#">Forgot Password</a></li>
+                        <li><a href="#">Manage Account</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                    </ul>
+                </div>
+                <div class="help-category">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Auth Modal -->
+    <div id="authModal" class="auth-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="openAuthTab('login')">Login</div>
+                <div class="auth-tab" onclick="openAuthTab('signup')">Sign Up</div>
+            </div>
+            
+            <div id="loginForm" class="auth-form active">
+                <h3>Login to Your Account</h3>
+                <input type="email" placeholder="Email" id="loginEmail">
+                <input type="password" placeholder="Password" id="loginPassword">
+                <button onclick="login()">Login</button>
+                <p style="text-align: center; margin-top: 10px;">
+                    <a href="#" style="color: #0066c0;">Forgot password?</a>
+                </p>
+            </div>
+            
+            <div id="signupForm" class="auth-form">
+                <h3>Create New Account</h3>
+                <input type="text" placeholder="Full Name" id="signupName">
+                <input type="email" placeholder="Email" id="signupEmail">
+                <input type="password" placeholder="Password" id="signupPassword">
+                <input type="password" placeholder="Confirm Password" id="signupConfirmPassword">
+                <button onclick="signup()">Create Account</button>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.9rem;">
+                    By creating an account, you agree to our <a href="#" style="color: #0066c0;">Terms and Conditions</a>
+                </p>
             </div>
         </div>
     </div>
@@ -482,7 +683,7 @@
                 <a href="#">Your Ads Privacy Choices</a>
             </div>
             <div class="copyright">
-                © 2082, BisheshBazzar.com, Inc. or its affiliates
+                © 2023, BisheshBazzar.com, Inc. or its affiliates
             </div>
         </div>
     </footer>
@@ -490,24 +691,117 @@
     <script>
         // Shopping Cart Functionality
         let cart = [];
+        let currentUser = null;
         
         function addToCart(productId) {
             // In a real app, you would fetch product details from your database
             const products = {
-                1: { name: "Red Georgette Saree", price: 2899, originalPrice: 28990 },
-                2: { name: "Men's Silk Kurta Pajama", price: 1599, originalPrice: 15990 },
-                3: { name: "Traditional Daura Suruwal", price: 1299, originalPrice: 12990 },
-                4: { name: "Blue Silk Saree", price: 3499, originalPrice: 34990 }
+                1: { name: "Red Georgette Saree", price: 4495, originalPrice: 8990 },
+                2: { name: "Men's Silk Kurta Pajama", price: 4794, originalPrice: 7990 },
+                3: { name: "Traditional Daura Suruwal", price: 4193, originalPrice: 5990 },
+                4: { name: "Blue Silk Saree", price: 7493, originalPrice: 9990 }
             };
             
             const product = products[productId];
             cart.push(product);
             updateCartCount();
-            alert(`${product.name} added to cart!\nDiscounted Price: Rs. ${product.price}\nOriginal Price: Rs. ${product.originalPrice}\nYou Save: Rs. ${product.originalPrice - product.price}`);
+            alert(`${product.name} added to cart!\nPrice: Rs. ${product.price}\nOriginal Price: Rs. ${product.originalPrice}\nYou Save: Rs. ${product.originalPrice - product.price}`);
         }
         
         function updateCartCount() {
             document.querySelector('.cart-count').textContent = cart.length;
+        }
+        
+        // Auth Modal Functionality
+        const authModal = document.getElementById("authModal");
+        const authButton = document.getElementById("authButton");
+        const closeButton = document.querySelector(".close");
+        
+        authButton.onclick = function() {
+            authModal.style.display = "block";
+        }
+        
+        closeButton.onclick = function() {
+            authModal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == authModal) {
+                authModal.style.display = "none";
+            }
+        }
+        
+        function openAuthTab(tabName) {
+            // Hide all tab content
+            const authForms = document.getElementsByClassName("auth-form");
+            for (let i = 0; i < authForms.length; i++) {
+                authForms[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tabs
+            const authTabs = document.getElementsByClassName("auth-tab");
+            for (let i = 0; i < authTabs.length; i++) {
+                authTabs[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add active class
+            document.getElementById(tabName + "Form").classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+        
+        function login() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            
+            // Basic validation
+            if (!email || !password) {
+                alert("Please enter both email and password");
+                return;
+            }
+            
+            // In a real app, you would validate against your backend
+            currentUser = {
+                email: email
+            };
+            
+            alert("Login successful!");
+            authModal.style.display = "none";
+            updateAuthButton();
+        }
+        
+        function signup() {
+            const name = document.getElementById("signupName").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+            const confirmPassword = document.getElementById("signupConfirmPassword").value;
+            
+            // Basic validation
+            if (!name || !email || !password || !confirmPassword) {
+                alert("Please fill in all fields");
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert("Passwords don't match");
+                return;
+            }
+            
+            // In a real app, you would send this to your backend
+            currentUser = {
+                name: name,
+                email: email
+            };
+            
+            alert("Account created successfully! You are now logged in.");
+            authModal.style.display = "none";
+            updateAuthButton();
+        }
+        
+        function updateAuthButton() {
+            if (currentUser) {
+                document.querySelector(".nav-signin p span").textContent = "Hello, " + (currentUser.name || currentUser.email.split("@")[0]);
+                document.querySelector(".nav-signin .nav-second").textContent = "Your Account";
+            }
         }
     </script>
 </body>
